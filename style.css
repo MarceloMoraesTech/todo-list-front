@@ -1,0 +1,22 @@
+.backgroundcolor{
+    background-color: #E5E3E1;
+}
+
+.top{
+    margin-top: 100px;
+}
+
+.tableSides{
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 100%;
+}
+
+.buttonStyle{
+    margin-left: 40px;
+}
+
+.imageHeader{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
