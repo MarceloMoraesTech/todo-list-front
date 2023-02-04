@@ -1,7 +1,7 @@
 .background {
     background-color: #e5e3e1;
-    width: 1024px;
-    margin-top: 100px;
+    width: 1012px;
+    margin-top: 30px;
     height: calc(100vh - 100%);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -21,24 +21,39 @@
   }
 
   .forms {
-    margin-top: 20px;
-    width: 1000px;
-    height: 200px;
-    padding: 20px;
-  }
-  
-  .background-form {
     background-color: #e5e3e1;
-    margin-left: 162px;
-    margin-right: 162px;
-
   }
 
-  .form-save-button {
-    padding-right: 30px;
-    padding-bottom: 30px;
+  .modal-button-container {
+    height: 55px ;
+    padding: 5px 25px;
+  }
+
+  .modal-button{
+    width: 125px;
   }
 
   .date-margin {
     margin-right: -20px;
   }
+
+  .svgConfig {
+    height: 30px;
+    width: 30px;
+  }
+
+  .backButtonBg {
+    background-color: #e5e3e1;
+  }
+
+  .titulo{
+    height: 35px;
+  } 
+  .dateCol {
+    padding-right: 15px;
+    margin-right: 120px;
+  }
+
+.del-img{
+  background-color: white;
+}

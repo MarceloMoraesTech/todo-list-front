@@ -1,9 +1,4 @@
 let list = document.getElementById('table-body')
-/*list.innerHTML = "OI"
-const test = document.createElement('div')
-test.id = 'teste-id'
-list.append(test)
-*/
 
 //TABLE
 
@@ -22,11 +17,11 @@ fetch('http://localhost:5000/api/tasks')
 
       const createdat = document.createElement('td')
       createdat.id = 'task-creation-date'
-      createdat.innerHTML = item.createdat
+      createdat.innerHTML = new Date (item.createdat).toLocaleDateString('pt-br')
 
       const duedate = document.createElement('td')
       duedate.id = 'task-deadline'
-      duedate.innerHTML = item.duedate
+      duedate.innerHTML = new Date (item.duedate).toLocaleDateString('pt-br')
 
       const status = document.createElement('td')
       status.id = 'task-status'
@@ -41,18 +36,47 @@ fetch('http://localhost:5000/api/tasks')
 
       const editButton = document.createElement('button')
       editButton.id = 'edit-button'
+      editButton.className = 'border-0 bg-white'
 
       const imageEditButton = document.createElement('img')
-      imageEditButton.src = 'edit.svg'
+      imageEditButton.src = 'imagens/edit.svg'
       
       const deleteTask = document.createElement('td')
       deleteTask.id = 'task-delete'
 
       const deleteButton = document.createElement('button')
       deleteButton.id = 'delete-button'
+      deleteButton.className = 'border-0 bg-white'
+      deleteButton.type = 'submit'
 
       const imageDeleteButton = document.createElement('img')
-      imageDeleteButton.src = 'delete.png'
+      imageDeleteButton.src = 'imagens/delete.svg'
+      imageDeleteButton.className = 'del-img'
+
+
+      deleteButton.addEventListener('click', async (event) => {
+        var clickedElement = event.target;
+        if (clickedElement.classList.contains('del-img')){
+          var taskId = item.id
+          console.log(taskId)
+        } else {
+          console.log('not ok',clickedElement)
+        }
+
+        const init = {
+          method: 'DELETE', 
+          headers: {
+            "Content-Type" : 'application/json'
+          },
+        }
+        //chamar API
+        const response = await fetch('http://localhost:5000/api/tasks/'+taskId, init)
+
+        window.location.reload()
+  
+        console.log('sucesso')
+    
+      })
 
       article.append(description)
       article.append(createdat)
@@ -68,17 +92,24 @@ fetch('http://localhost:5000/api/tasks')
       list.append(article)
 
     })
-    console.log('variavel',vari)
+
+   
+
     })
     .catch(error => console.log(error))
 
-    //BUTTON
-    var url = "file:///C:/Users/marce/OneDrive/Documentos/projects/todo-list-front/form.html";
-    var btn = document.querySelector("#btn");
-    function openInNewTab(url) {
-      var win = window.open(url, '_blank');
-      win.focus();
-    }
-    btn.addEventListener('click', function() {
-      openInNewTab(url);
-    });
+    
+    // deleteButton.addEventListener('click', async (event) => {
+    //   event.preventDefault()
+    //   const init = {
+    //     method: 'DELETE', 
+    //     headers: {
+    //       "Content-Type" : 'application/json'
+    //     },
+    //   }
+    //   //chamar API
+    //   const response = await fetch('http://localhost:5000/api/tasks/43065bdb-4c14-432d-91f2-ce8d707a4543', init)
+
+    //   console.log('sucesso')
+  
+    // })
