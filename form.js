@@ -116,15 +116,15 @@ const dialog = document.createElement('div')
 dialog.className = 'modal-dialog'
 
 const content = document.createElement('div')
-content.className = 'modal-content'
+content.className = 'modal-content backButtonBg'
 
 const header = document.createElement('div')
-header.className = 'modal-header'
+header.className = 'modal-header border-0'
 
 const modalButtonTitle = document.createElement('h5')
 modalButtonTitle.className = 'modal-title'
 modalButtonTitle.id = 'exampleModalLabel'
-modalButtonTitle.innerHTML = 'Modal title'
+modalButtonTitle.innerHTML = 'Are you sure you want to add this task'
 
 const modalButtonClose = document.createElement('button')
 modalButtonClose.className = 'btn-close'
@@ -136,11 +136,11 @@ const body = document.createElement('div')
 body.className = 'modal-body'
 
 const footer = document.createElement('div')
-footer.className = 'modal-footer'
+footer.className = 'modal-footer border-0'
 
 const modbuttonshut = document.createElement('button')
 modbuttonshut.className = 'btn btn-secondary'
-modbuttonshut.innerHTML = 'Close'
+modbuttonshut.innerHTML = 'Cancel'
 modbuttonshut.setAttribute('data-bs-dismiss','modal')
 modbuttonshut.type = 'button'
 
@@ -149,10 +149,11 @@ modButtonSaveChanges.className = 'btn btn-primary'
 modButtonSaveChanges.innerHTML = 'Save Changes'
 modButtonSaveChanges.type = 'submit'
 
+//SAVE TASK
 const saveButton = document.createElement('input')
 saveButton.className = 'btn btn-primary '
 saveButton.type = 'submit'
-saveButton.value = 'Save task'
+saveButton.value = 'Add'
 saveButton.setAttribute('data-bs-dismiss','modal')
 
 
@@ -178,7 +179,7 @@ form.addEventListener('submit', async (event) => {
  descriptionInput.value = ''
  duedateInput.value = ''
  listInput.value = ''
-
+ window.location.href="home.html"
 })
      
 section.append(firstRowContainer)
